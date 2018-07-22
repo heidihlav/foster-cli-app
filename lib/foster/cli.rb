@@ -1,10 +1,34 @@
 # code CLI here
+class Foster::CLI
+  def start
+    puts "Welcome to Friends for Life Foster page!"
+    puts ""
+    puts "Do you want to learn about one of our cats or dogs available for foster? Enter 'cats' or 'dogs'."
+  end
+
+  def main_menu
+    puts "Do you want to learn about one of our cats or dogs available for foster? Enter 'cats' or 'dogs'."
+    if cats -> display Cats
+      if dogs -> display Dogs
+
+  end
+
+  def dogs
+    displays dogs
+    @dogs
+  end
+
+  def cats
+    displays cats
+    @cats
+  end
+end
 
 CLI walkthrough -
 
-puts "Welcome to Friends for Life Foster page!"
-puts ""
-puts "Do you want to learn about one of our cats or dogs available for foster? Enter 'cats' or 'dogs'."
+# puts "Welcome to Friends for Life Foster page!"
+# puts ""
+# puts "Do you want to learn about one of our cats or dogs available for foster? Enter 'cats' or 'dogs'."
 
 user_input = gets.strip
 user_input = "cats" || "dogs"
