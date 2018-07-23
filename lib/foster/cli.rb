@@ -32,7 +32,7 @@ class CLI
       puts "#{index}. #{cat.name}"
   end
 
-  def cats_or_dogs
+  def choose_cat_or_dog
     puts ""
     puts "Which cat or dog would you like to know more about? Enter a number."
     user_input = gets.strip
@@ -43,9 +43,20 @@ class CLI
     #   GamesReview::Scraper.scrape_game_details(game)
     # end
   end
+
+  def another_cat_or_dog
+    puts "Would you like to see another cat or dog? Enter Y or N."
+    user_input = gets.strip
+    if user_input == "Y"
+      choose_cat_or_dog #go back to "Which cat or dog..."*
+    if user_input == "N"
+      puts "Thank you for considering one of our foster pets! If you are ready to apply, please contact us!"
+      #exits the program
+  end
 end
 
-CLI walkthrough -
+
+# CLI walkthrough -
 
 # puts "Welcome to Friends for Life Foster page!"
 # puts ""
@@ -74,14 +85,14 @@ CLI walkthrough -
 # user_input = gets.strip.to_i
 # *User enters 1 - 10*
 
-*Displays individual pet name and description* - have to scrape individual pet page
+# *Displays individual pet name and description* - have to scrape individual pet page
 
-puts "Would you like to see another cat or dog? Enter Y or N."
-user_input = gets.strip
-
-*If yes
-   go back to "Which cat or dog..."*
-
-*If no
- *"Thank you for considering one of our foster pets! If you are ready to apply, please contact us!"*
- *exits the program*
+# puts "Would you like to see another cat or dog? Enter Y or N."
+# user_input = gets.strip
+#
+# *If yes
+#    go back to "Which cat or dog..."*
+#
+# *If no
+#  *"Thank you for considering one of our foster pets! If you are ready to apply, please contact us!"*
+#  *exits the program*
