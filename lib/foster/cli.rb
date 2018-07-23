@@ -17,7 +17,7 @@ class CLI
      end
   end
 
-  def dogs   #displays dogs in a list
+  def display_dogs   #displays dogs in a list
     # @dogs in initialize and scrape dogs section
     puts "Here are our urgent needs for Dogs:"
     @dogs.each.with_index(1) do |dog, index|
@@ -25,11 +25,23 @@ class CLI
     end
   end
 
-  def cats   #displays cats in a list
+  def display_cats   #displays cats in a list
     # @cats in initialize and scrape cats section
     puts "Here are our urgent needs for Cats:"
     @cats.each.with_index(1) do |cat, index|
       puts "#{index}. #{cat.name}"
+  end
+
+  def cats_or_dogs
+    puts ""
+    puts "Which cat or dog would you like to know more about? Enter a number."
+    user_input = gets.strip
+    index = input.to_i - 1
+    #needs to go through scraped indiv pet pages similar to cernan's method
+    # game = GamesReview::Game.all[index]
+    # if !game.rating || !game.description
+    #   GamesReview::Scraper.scrape_game_details(game)
+    # end
   end
 end
 
@@ -58,9 +70,9 @@ CLI walkthrough -
 #   -Cat name
 #   -etc
 
-puts "Which cat or dog would you like to know more about? Enter a number 1 - 10."
-user_input = gets.strip.to_i
-*User enters 1 - 10*
+# puts "Which cat or dog would you like to know more about? Enter a number 1 - 10."
+# user_input = gets.strip.to_i
+# *User enters 1 - 10*
 
 *Displays individual pet name and description* - have to scrape individual pet page
 
