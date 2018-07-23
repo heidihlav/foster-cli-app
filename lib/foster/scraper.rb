@@ -1,6 +1,6 @@
 # code scrapers here
-
-class Foster::Scraper
-
-
-end
+# 
+# class Foster::Scraper
+#
+#
+# end
