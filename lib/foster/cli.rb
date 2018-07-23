@@ -10,25 +10,27 @@ class CLI
   def main_menu
     puts "Do you want to learn about one of our cats or dogs available for foster? Enter 'cats' or 'dogs'."
     user_input = gets.strip
-    if cats -> display Cats
-    if dogs -> display Dogs
-
+    if user_input == "cats"
+       cats
+    elsif user_input == "dogs"
+       dogs
+     end
   end
 
-  def dogs
-    @dogs
+  def dogs   #displays dogs in a list
+    # @dogs in initialize and scrape dogs section
+    puts "Here are our urgent needs for Dogs:"
     @dogs.each.with_index(1) do |dog, index|
       puts "#{index}. #{dog.name}"
     end
-    #displays dogs in a list
   end
 
-  def cats
-    @cats
+  def cats   #displays cats in a list
+    # @cats in initialize and scrape cats section
+    puts "Here are our urgent needs for Cats:"
     @cats.each.with_index(1) do |cat, index|
       puts "#{index}. #{cat.name}"
   end
-  #displays cats in a list
 end
 
 CLI walkthrough -
@@ -37,24 +39,24 @@ CLI walkthrough -
 # puts ""
 # puts "Do you want to learn about one of our cats or dogs available for foster? Enter 'cats' or 'dogs'."
 
-user_input = gets.strip
-user_input = "cats" || "dogs"
+# user_input = gets.strip
+# user_input = "cats" || "dogs"
 
-*Scrape main foster page*
-
-If user_input = "dogs"
-*Display names*
-puts "Here are our urgent needs for Dogs:" *use index to display with names. "1. Tamale" so each_with_index?
-  -Dog name
-  -Dog name
-  -etc
-
-*If "cats" -*
-*Display names*
-puts "Here are our urgent needs for Cats:" *use index to display with names. "1. Tamale"
-  -Cat name
-  -Cat name
-  -etc
+# *Scrape main foster page*
+#
+# If user_input = "dogs"
+# *Display names*
+# puts "Here are our urgent needs for Dogs:" *use index to display with names. "1. Tamale" so each_with_index?
+#   -Dog name
+#   -Dog name
+#   -etc
+#
+# *If "cats" -*
+# *Display names*
+# puts "Here are our urgent needs for Cats:" *use index to display with names. "1. Tamale"
+#   -Cat name
+#   -Cat name
+#   -etc
 
 puts "Which cat or dog would you like to know more about? Enter a number 1 - 10."
 user_input = gets.strip.to_i

@@ -2,7 +2,7 @@
 class Pets
   # Foster::
 
-  attr_accessor :name, :description, :url, :cat, :dog
+  attr_accessor :name, :description, :url, :cats, :dogs
 
 
   #@@all
