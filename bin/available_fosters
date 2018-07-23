@@ -1,6 +1,7 @@
 #!/usr/local/bin ruby
-require_relative '../lib/foster/cli'
+require_relative '../lib/foster/cli.rb'
 
 # puts "hello"
 
 CLI.new.start
+CLI.main_menu

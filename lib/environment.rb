@@ -1,7 +1,5 @@
 #environment file
 
-# require_relative "./foster/version"
-# require_relative "./foster/cli"
 
 module Foster
   # Your code goes here...
