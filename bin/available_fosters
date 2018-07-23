@@ -1,6 +1,6 @@
 #!/usr/local/bin ruby
 require_relative '../lib/foster/cli'
 
-puts "hello"
+# puts "hello"
 
 CLI.new.start
