@@ -1,6 +1,6 @@
 # code pets objects here - individual pets attributes
-class Pets
-  # Foster::
+class Foster::Pets
+
 
   attr_accessor :name, :description, :url, :cats, :dogs
 

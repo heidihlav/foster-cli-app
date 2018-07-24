@@ -1,10 +1,10 @@
-# # code CLI here
-class CLI
-# Foster::
-  def self.start
+#  code CLI here
+class Foster::CLI
+
+  def start
     puts "Welcome to Friends for Life Foster page!"
     puts ""
-    puts "Do you want to learn about one of our cats or dogs available for foster? Enter 'cats' or 'dogs'."
+    # puts "Do you want to learn about one of our cats or dogs available for foster? Enter 'cats' or 'dogs'."
   end
 
   def self.main_menu
