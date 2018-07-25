@@ -2,7 +2,7 @@
 #!/usr/bin/env ruby
 # require_relative '../lib/environment' #having this brought up error with loading nokogiri
 # require_relative '../lib/foster/cli.rb'
-require_relative 'CLI_project/foster/lib/environment'
+require_relative '../lib/environment'
 
 # puts "hello"
 
