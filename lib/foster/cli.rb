@@ -4,24 +4,24 @@ class Foster::CLI
   def start
     puts "Welcome to Friends for Life Foster page!"
     puts ""
-    # puts "Do you want to learn about one of our cats or dogs available for foster? Enter 'cats' or 'dogs'."
+    main_menu
   end
 
-  def self.main_menu
+  def main_menu
     puts "Do you want to learn about one of our cats or dogs available for foster? Enter 'cats' or 'dogs'."
     puts ""
     puts "If you'd like to exit at any time, type 'exit'."
     user_input = gets.strip
     if user_input == "cats"
-       cats
+       display_cats
     elsif user_input == "dogs"
-       dogs
+       display_dogs
     elsif user_input == 'exit'
        puts "Thank you for considering one of our foster pets!"
      end
   end
 
-  def self.display_dogs   #displays dogs in a list
+  def display_dogs   #displays dogs in a list
     # @dogs in initialize and scrape dogs section
     puts "Here are our urgent needs for Dogs:"
     puts ""
@@ -30,7 +30,7 @@ class Foster::CLI
     end
   end
 
-  def self.display_cats   #displays cats in a list
+  def display_cats   #displays cats in a list
     # @cats in initialize and scrape cats section
     puts "Here are our urgent needs for Cats:"
     puts ""
@@ -39,7 +39,7 @@ class Foster::CLI
     end
   end
 
-  def self.choose_cat_or_dog
+  def choose_cat_or_dog
     puts "Which cat or dog would you like to know more about? Enter a number."
     puts ""
     user_input = gets.strip
@@ -51,7 +51,7 @@ class Foster::CLI
     # end
   end
 
-  def self.another_cat_or_dog
+  def another_cat_or_dog
     puts "Would you like to see another cat or dog? Enter Y or N."
     puts ""
     user_input = gets.strip
