@@ -34,9 +34,10 @@ class Foster::CLI
     # @cats in initialize and scrape cats section
     puts "Here are our urgent needs for Cats:"
     puts ""
-    @cats.each.with_index(1) do |cat, index|
+    Foster::Pets.cats.each.with_index(1) do |cat, index|
       puts "#{index}. #{cat.name}"
     end
+      binding.pry
   end
 
   def choose_cat_or_dog
