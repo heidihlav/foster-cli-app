@@ -1,6 +1,5 @@
 #environment file
 
-
 module Foster
   # Your code goes here...
 end
