@@ -14,11 +14,4 @@ class Foster::Pets
     @@all
   end
 
-  def self.cats
-    @cats = ["cat_1", "cat_2", "cat_3"]# pass in cats scraped from FFl webpage
-  end
-
-  #each or each with index - diff iterators
-
-
 end
