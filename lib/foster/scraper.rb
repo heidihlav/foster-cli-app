@@ -6,7 +6,7 @@ class Foster::Scraper
        @name.each {|li| puts "#{li.text}"}
   end
 
-  def scrape_url
+  def scrape_url #need to choose individual pets pages to scrape p tag for description - 3 cats and 3 dogs
     doc = Nokogiri::HTML(open('http://www.friends4life.org/how-to-help/foster'))
       @url = doc.css("div.callout").each {|li| puts "#{li.css('a')[0]['href']}"}
       binding.pry

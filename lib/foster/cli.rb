@@ -23,7 +23,7 @@ class Foster::CLI
     puts "Here are all of our pets available for foster:"
     puts ""
     Foster::Scraper.new.scrape_names
-    #choose_pet
+    Foster::CLI.new.choose_pet
   end
 
   def choose_pet
