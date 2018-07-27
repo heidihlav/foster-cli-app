@@ -1,18 +1,13 @@
-# code scrapers here
 
-# class Foster::Scraper
-#
-#
-# end
-
+# Here is for the name... doc.css("div.callout a").each{|li| puts "#{li.text}"}
+# Here is for the url... doc.css("div.callout").each{|li| puts "#{li.css('a')[0]['href']}"}
 
 class Foster::Scraper
   def scrape_names
       # puts "SCRAPE names"
       doc = Nokogiri::HTML(open('http://www.friends4life.org/how-to-help/foster'))
-      @detail = doc.css("div.callout li a")
-      @detail.each {|li| puts "#{li.text}"}
-      binding.pry
+      @name = doc.css("div.callout li a") #use li because foster care app is an a item
+         @name.each {|li| puts "#{li.text}"}
       # @detail.each do |li|
       #   if li.css("a").any?  # to eliminate headlines without detailed story
       #     headline = BizNews::Headline.new
@@ -23,7 +18,13 @@ class Foster::Scraper
       # end
       # BizNews::Headline.all
   end
-  # def scrape_article(headline, url)
+
+  def scrape_subheads
+    doc = Nokogiri::HTML(open('http://www.friends4life.org/how-to-help/foster'))
+      @subheading = doc.css("div.callout h5").first.text  #Urgent needs for dogs heading
+      @subheading = doc.css("div.callout h5")[1].text  #Urgent needs for cats heading
+  end
+  # def scrape_url(headline, url)
   #   # puts "SCRAPING #{url}"
   #   article_doc = Nokogiri::HTML(open("#{url}"))
   #   article = BizNews::Article.new
