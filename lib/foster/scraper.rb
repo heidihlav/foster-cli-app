@@ -11,7 +11,7 @@ class Foster::Scraper
       # @url = doc.css("div.callout").each {|li| puts "#{li.css('a')[0]['href']}"}
       # @url = doc.css("div.callout a").each {|i| puts i.attr('href')} #returns urls as string - need to scrape these
       # @url = doc.css("div.callout a").map {|i| i.attr('href')} #returns urls as an array of strings
-      @url = doc.css("div.callout a").map {|i| i.attr('href').tap {|li| Nokogiri::HTML(open('http://www.friends4life.org'+li))} }
+      @url = doc.css("div.callout a").map {|i| i.attr('href').tap {|li| Nokogiri::HTML(open('http://www.friends4life.org' + li.gsub(/\s/,"%20")))} }
       binding.pry
   end
 # doc.css("div.callout").each {|li| puts "#{li.css("a")}"}.each {|l| puts "l"} - to grab bio pages and p tags
