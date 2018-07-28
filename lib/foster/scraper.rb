@@ -11,7 +11,7 @@ class Foster::Scraper
       @url = doc.css("div.callout").each {|li| puts "#{li.css('a')[0]['href']}"}
       binding.pry
   end
-
+# doc.css("div.callout").each {|li| puts "#{li.css("a")}"}.each {|l| puts "l"} - to grab bio pages and p tags
   def scrape_subheads
     doc = Nokogiri::HTML(open('http://www.friends4life.org/how-to-help/foster'))
       @subheading = doc.css("div.callout h5").first.text  #Urgent needs for dogs heading
