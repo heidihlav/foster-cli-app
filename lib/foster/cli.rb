@@ -39,11 +39,11 @@ class Foster::CLI
   end
 
   def another_cat_or_dog
-    puts "Would you like to see another cat or dog? Enter Y or N."
+    puts "Would you like to see another pet? Enter Y or N."
     puts ""
     user_input = gets.strip
     if user_input == "Y"
-      self.choose_cat_or_dog #go back to "Which cat or dog..."*
+      self.choose_pet #go back to "Which cat or dog..."*
     elsif user_input == "N"
       puts "Thank you for considering one of our foster pets! If you are ready to apply, please contact us!"
       #exits the program
