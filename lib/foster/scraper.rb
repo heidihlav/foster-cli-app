@@ -15,11 +15,13 @@ class Foster::Scraper
   end
 
   def scrape_description
-      @url.tap do |li|
-         doc = Nokogiri::HTML(open('http://www.friends4life.org' + li.gsub(/\s/,"%20")))
-          @description = doc.css("div.adoptable-summary p")
- binding.pry
+    doc = Nokogiri::HTML(open('http://www.friends4life.org/how-to-help/foster'))
+      @url = doc.css("div.callout ul a").map do |i|
+        i.attr('href').tap do |li|
+          bios = Nokogiri::HTML(open('http://www.friends4life.org' + li.gsub(/\s/,"%20")))
+            @description = bios.css("div.adoptable-summary p").text # need to use regex to get rid of spaces in bios
       end
+    end
   end
 
 # doc.css("div.callout").each {|li| puts "#{li.css("a")}"}.each {|l| puts "l"} - to grab bio pages and p tags
