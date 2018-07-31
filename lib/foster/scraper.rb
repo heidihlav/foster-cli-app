@@ -15,11 +15,10 @@ class Foster::Scraper
   end
 
   def scrape_description
-    doc = Nokogiri::HTML(open('http://www.friends4life.org/how-to-help/foster'))
-      @url = doc.css("div.callout ul a").map do |i|
-        i.attr('href').tap do |li|
-         Nokogiri::HTML(open('http://www.friends4life.org' + li.gsub(/\s/,"%20")))
-        end
+      @url.tap do |li|
+         doc = Nokogiri::HTML(open('http://www.friends4life.org' + li.gsub(/\s/,"%20")))
+          @description = doc.css("div.adoptable-summary p")
+ binding.pry
       end
   end
 
