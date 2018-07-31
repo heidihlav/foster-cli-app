@@ -1,6 +1,6 @@
 # code pets objects here - individual pets attributes
 class Foster::Pets
-  attr_accessor :name, :description, :url, :subheading
+  attr_accessor :name, :description, :url
   @@all = []
 
   def initialize(name, description, url)

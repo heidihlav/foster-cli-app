@@ -27,10 +27,13 @@ class Foster::CLI
   end
 
   def choose_pet
+    Foster::Scraper.new.scrape_url
+    Foster::Scraper.new.scrape_description
     puts "Which pet would you like to know more about? Enter their name."
     puts ""
     user_input = gets.strip
-    Foster::Scraper.new.scrape_url
+
+
     #needs to go through scraped indiv pet pages similar to cernan's method
     # game = GamesReview::Game.all[index]
     # if !game.rating || !game.description

@@ -8,15 +8,26 @@ class Foster::Scraper
 
   def scrape_url
     doc = Nokogiri::HTML(open('http://www.friends4life.org/how-to-help/foster'))
-      
-      @url = doc.css("div.callout a").map {|i| i.attr('href').tap {|li| Nokogiri::HTML(open('http://www.friends4life.org' + li.gsub(/\s/,"%20")))} }  #
-      binding.pry
+      @url = doc.css("div.callout ul a").map do |i|
+        i.attr('href')
+      end
+    @url
   end
-# doc.css("div.callout").each {|li| puts "#{li.css("a")}"}.each {|l| puts "l"} - to grab bio pages and p tags
-  def scrape_subheads
+
+  def scrape_description
     doc = Nokogiri::HTML(open('http://www.friends4life.org/how-to-help/foster'))
-      @subheading = doc.css("div.callout h5").first.text  #Urgent needs for dogs heading
-      @subheading = doc.css("div.callout h5")[1].text  #Urgent needs for cats heading
+      @url = doc.css("div.callout ul a").map do |i|
+        i.attr('href').tap do |li|
+         Nokogiri::HTML(open('http://www.friends4life.org' + li.gsub(/\s/,"%20")))
+        end
+      end
   end
+
+# doc.css("div.callout").each {|li| puts "#{li.css("a")}"}.each {|l| puts "l"} - to grab bio pages and p tags
+  # def scrape_subheads
+  #   doc = Nokogiri::HTML(open('http://www.friends4life.org/how-to-help/foster'))
+  #     @subheading = doc.css("div.callout h5").first.text  #Urgent needs for dogs heading
+  #     @subheading = doc.css("div.callout h5")[1].text  #Urgent needs for cats heading
+  # end
 
 end
