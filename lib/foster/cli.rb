@@ -22,16 +22,16 @@ class Foster::CLI
   def display_pets   #displays all pets in a list
     puts "Here are all of our pets available for foster:"
     puts ""
-    Foster::Scraper.new.scrape_names
+    Foster::Scraper.scrape_names
+    #each_with_index for all pets - choose # instead of name
     Foster::CLI.new.choose_pet
   end
 
   def choose_pet
-    Foster::Scraper.new.scrape_url
-    Foster::Scraper.new.scrape_description
     puts "Which pet would you like to know more about? Enter their name."
     puts ""
     user_input = gets.strip
+    Foster::Scraper.scrape_description(url)
 
 
     #needs to go through scraped indiv pet pages similar to cernan's method
