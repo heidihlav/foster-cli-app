@@ -28,10 +28,10 @@ class Foster::CLI
   end
 
   def choose_pet
-    puts "Which pet would you like to know more about? Enter their name."
+    puts "Which pet would you like to know more about? Enter the number next to their name."
     puts ""
     user_input = gets.strip
-    Foster::Scraper.scrape_description(url)
+    Foster::Scraper.scrape_description #will need to pass in (url) as argument
 
 
     #needs to go through scraped indiv pet pages similar to cernan's method

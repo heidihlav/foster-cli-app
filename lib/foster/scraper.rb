@@ -2,12 +2,13 @@ class Foster::Scraper
 
   def self.scrape_names
     doc = Nokogiri::HTML(open('http://www.friends4life.org/how-to-help/foster'))
-      @name = doc.css("div.callout li a") #use li because foster care app is an a item
+      @name = doc.css("div.callout li a")
       @url = doc.css("div.callout ul a").map do |i|
         i.attr('href')
       end
-       @name.each_with_index {|li, index| Foster::Pets.new("#{li.text}", @url[index])}
-       binding.pry
+      @name.each_with_index do |li, index|
+        Foster::Pets.new("#{li.text}", @url[index])
+      end
   end
 
 
