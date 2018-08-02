@@ -10,17 +10,17 @@ class Foster::Scraper
         Foster::Pets.new("#{li.text}", url[index])
         # binding.pry
       end
-
   end
 
 
-  def self.scrape_description(url)
-    binding.pry
+  def self.scrape_description
     doc = Nokogiri::HTML(open('http://www.friends4life.org/how-to-help/foster'))
       url = doc.css("div.callout ul a").map do |i|
         i.attr('href').tap do |li|
           bios = Nokogiri::HTML(open('http://www.friends4life.org' + li.gsub(/\s/,"%20")))
-            pets.description = bios.css("div.adoptable-summary p").text # need to use regex to get rid of spaces in bios
+          description = bios.css("div.adoptable-summary p").text # need to use regex to get rid of spaces in bios   pets.
+          binding.pry
+          #may need to make separate method to store everything scraped in arr
       end
     end
   end

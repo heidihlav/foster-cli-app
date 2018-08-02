@@ -27,7 +27,7 @@ class Foster::CLI
     pets.each.with_index(1) do |pet, index|
       puts "#{index}. #{pet.name}"
     end
-    Foster::CLI.new.choose_pet
+    choose_pet
   end
 
   def choose_pet
@@ -36,11 +36,11 @@ class Foster::CLI
     user_input = gets.strip
     index = user_input.to_i - 1
     pets = Foster::Pets.all[index]
-    if !pets.description
-      Foster::Scraper.scrape_description(url)
-    end
+    # if !pets.description
+      Foster::Scraper.scrape_description
+    # end
     puts "Here's information about our pet:"
-    puts pets.description
+    # puts Foster::Pets.list_pets - need to make method to list pet descriptions from array
     Foster::CLI.new.another_pet
   end
 
