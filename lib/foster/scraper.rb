@@ -2,22 +2,25 @@ class Foster::Scraper
 
   def self.scrape_names
     doc = Nokogiri::HTML(open('http://www.friends4life.org/how-to-help/foster'))
-      @name = doc.css("div.callout li a")
-      @url = doc.css("div.callout ul a").map do |i|
+      name = doc.css("div.callout li a")
+      url = doc.css("div.callout ul a").map do |i|
         i.attr('href')
       end
-      @name.each_with_index do |li, index|
-        Foster::Pets.new("#{li.text}", @url[index])
+      name.each_with_index do |li, index|
+        Foster::Pets.new("#{li.text}", url[index])
+        # binding.pry
       end
+
   end
 
 
-  def self.scrape_description
+  def self.scrape_description(url)
+    binding.pry
     doc = Nokogiri::HTML(open('http://www.friends4life.org/how-to-help/foster'))
-      @url = doc.css("div.callout ul a").map do |i|
+      url = doc.css("div.callout ul a").map do |i|
         i.attr('href').tap do |li|
           bios = Nokogiri::HTML(open('http://www.friends4life.org' + li.gsub(/\s/,"%20")))
-            @description = bios.css("div.adoptable-summary p").text # need to use regex to get rid of spaces in bios
+            pets.description = bios.css("div.adoptable-summary p").text # need to use regex to get rid of spaces in bios
       end
     end
   end

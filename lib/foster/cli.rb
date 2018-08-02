@@ -23,7 +23,10 @@ class Foster::CLI
     puts "Here are all of our pets available for foster:"
     puts ""
     Foster::Scraper.scrape_names
-    #each_with_index for all pets - choose # instead of name
+    pets = Foster::Pets.all #each_with_index for all pets - choose # instead of name
+    pets.each.with_index(1) do |pet, index|
+      puts "#{index}. #{pet.name}"
+    end
     Foster::CLI.new.choose_pet
   end
 
@@ -31,17 +34,17 @@ class Foster::CLI
     puts "Which pet would you like to know more about? Enter the number next to their name."
     puts ""
     user_input = gets.strip
-    Foster::Scraper.scrape_description #will need to pass in (url) as argument
-
-
-    #needs to go through scraped indiv pet pages similar to cernan's method
-    # game = GamesReview::Game.all[index]
-    # if !game.rating || !game.description
-    #   GamesReview::Scraper.scrape_game_details(game)
-    # end
+    index = user_input.to_i - 1
+    pets = Foster::Pets.all[index]
+    if !pets.description
+      Foster::Scraper.scrape_description(url)
+    end
+    puts "Here's information about our pet:"
+    puts pets.description
+    Foster::CLI.new.another_pet
   end
 
-  def another_cat_or_dog
+  def another_pet
     puts "Would you like to see another pet? Enter Y or N."
     puts ""
     user_input = gets.strip
@@ -49,7 +52,6 @@ class Foster::CLI
       self.choose_pet #go back to "Which cat or dog..."*
     elsif user_input == "N"
       puts "Thank you for considering one of our foster pets! If you are ready to apply, please contact us!"
-      #exits the program
     end
   end
 

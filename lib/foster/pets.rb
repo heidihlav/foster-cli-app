@@ -13,5 +13,5 @@ class Foster::Pets
   def self.all
     @@all
   end
-
+# binding.pry
 end
