@@ -2,8 +2,35 @@
 class Foster::CLI
 
   def start
-    puts "Cats or dogs"
+    list_pets
+    menu
   end
+
+  def list_pets
+    puts "These are our cats or dogs available for foster:"
+    puts "Dogs"
+    puts "1. Fido"
+    puts "2. Fluffy"
+    puts "Cats"
+    puts "3. Mittens"
+    puts "4. Socks"
+  end
+
+  def menu
+    puts "Which cat or dog would you like to know more about?"
+    user_input = gets.strip
+    case user_input
+    when "1"
+      puts "Follow this link to learn more about our pet: Fido link"
+    when "2"
+      puts "Follow this link to learn more about our pet: Fluffy link"
+    when "3"
+      puts "Follow this link to learn more about our pet: Mittens link"
+    when "4"
+      puts "Follow this link to learn more about our pet: Socks link"
+  end
+
+end
 
 #   def main_menu
 #     puts "If you want to learn about one of our pets available for foster, enter Y."
@@ -50,8 +77,3 @@ class Foster::CLI
 #       puts "Thank you for considering one of our foster pets! If you are ready to apply, please contact us!"
 #     end
 #   end
-#
-#
-#
-#
-end
