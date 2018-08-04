@@ -35,7 +35,7 @@ class Foster::CLI
     puts ""
     user_input = gets.strip
     index = user_input.to_i - 1
-    Foster::Scraper.scrape_description
+    Foster::Scraper.get_pet_description(url)
     pets = Foster::Pets.all[index]
     puts "Here's information about our pet:"
     # puts Foster::Pets.list_pets - need to make method to list pet descriptions from array
