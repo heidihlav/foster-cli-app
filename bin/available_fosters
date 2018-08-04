@@ -1,10 +1,7 @@
 
 #!/usr/bin/env ruby
-# require_relative '../lib/environment' #having this brought up error with loading nokogiri
-# require_relative '../lib/foster/cli.rb'
 require_relative '../lib/environment'
 
-# puts "hello"
+puts "hello"
 
-Foster::CLI.new.start
-# Foster::CLI.main_menu
+# Foster::CLI.new.start

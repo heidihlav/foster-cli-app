@@ -53,35 +53,7 @@ class Foster::CLI
     end
   end
 
-  # def self.end_app
-  #     user_input = gets.strip
-  #     if user_input == 'exit'
-  #       puts "Thank you for considering one of our foster pets!"
-  # end
+ 
 
 
 end
-
-# def display_cats   #displays cats in a list
-#   # @cats in initialize and scrape cats section
-#   puts "Here are our urgent needs for Cats:"
-#   puts ""
-#   Foster::Scraper.new.scrape_names
-#   Foster::Pets.all.each.with_index(1) do |cat, i|
-#     puts " #{i}. #{cat}"
-#   end
-# end
-
-# def main_menu
-#   puts "Do you want to learn about one of our cats or dogs available for foster? Enter 'cats' or 'dogs'."
-#   puts ""
-#   puts "If you'd like to exit at any time, type 'exit'."
-#   user_input = gets.strip
-#   if user_input == "cats"
-#      display_cats
-#   elsif user_input == "dogs"
-#      display_dogs
-#   elsif user_input == 'exit'
-#      puts "Thank you for considering one of our foster pets!"
-#    end
-# end
