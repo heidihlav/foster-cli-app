@@ -8,6 +8,7 @@ class Foster::CLI
   end
 
   def list_pets
+    puts "These are our cats or dogs available for foster:"
     @pets = Foster::Pets.all
   end
 
