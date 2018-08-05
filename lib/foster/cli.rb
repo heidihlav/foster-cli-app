@@ -17,19 +17,12 @@ class Foster::CLI
     while user_input != "exit"
       puts "Which cat or dog would you like to know more about? Type the number next to the pet's name. Type 'exit' if you are done. Or type 'list' to see the available pets again."
       user_input = gets.strip
-      case user_input
-      when "1"
-        puts "Follow this link to learn more about our pet: Fido link"
-      when "2"
-        puts "Follow this link to learn more about our pet: Fluffy link"
-      when "3"
-        puts "Follow this link to learn more about our pet: Mittens link"
-      when "4"
-        puts "Follow this link to learn more about our pet: Socks link"
-      when "list"
+      if user_input.to_i > 0
+        puts @pets[user_input.to_i - 1]
+      elsif input == "list"
         list_pets
       else
-        "Enter 'list' or 'exit'."
+        puts "Enter 'list' or 'exit'."
       end
     end
   end
