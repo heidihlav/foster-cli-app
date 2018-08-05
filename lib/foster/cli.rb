@@ -7,13 +7,13 @@ class Foster::CLI
     goodbye
   end
 
-  def list_pets
-    puts "These are our cats or dogs available for foster:"
-    @pets = Foster::Pets.all #returns deal objects
-    @pets.each.with_index(1) do |pet, index|
-      puts "#{index}. #{pet.name}"
-    end
-  end
+  # def list_pets
+  #   puts "These are our cats or dogs available for foster:"
+  #   @pets = Foster::Pets.all #returns objects
+  #   @pets.each.with_index(1) do |pet, index|
+  #     puts "#{index}. #{pet.name}"
+  #   end
+  # end
 
   def menu
     user_input = nil
