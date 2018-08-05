@@ -1,39 +1,40 @@
-#  code CLI here
-class Foster::CLI
 
-  def start
-    list_questions
-    menu
-    goodbye
-  end
+  #  code CLI here
+  class Foster::CLI
 
-  def list_questions
-    puts "These are our most commonly asked questions about fostering a pet:"
-    @questions = Foster::Questions.all #returns objects
-    #@questions.each.with_index(1) do |q, index|
-      #puts "#{index}. #{q}"
+    def start
+      list_pets
+      menu
+      goodbye
     end
-  end
 
-  def menu
-    user_input = nil
-    while user_input != "exit"
-      puts "What questions about fostering would you like to know more about? Enter the number next to the question. Type 'exit' if you are done. Or type 'list' to see the questions again."
-      user_input = gets.strip
-
-      if user_input.to_i > 0
-        the_q = @questions[user_input.to_i - 1]
-        puts "#{the_q.name}"
-      elsif user_input == "list"
-        list_questions
-      else
-        puts "Enter 'list' or 'exit'."
+    def list_pets
+      puts "These are our cats or dogs available for foster:"
+      @pets = Foster::Pets.all #returns objects
+      @pets.each.with_index(1) do |pet, index|
+        puts "#{index}. #{pet.name}"
       end
     end
-  end
 
-  def goodbye
-    "Thank you for considering fostering one of our pets!"
-  end
+    def menu
+      user_input = nil
+      while user_input != "exit"
+        puts "Which cat or dog would you like to know more about? Type the number next to the pet's name. Type 'exit' if you are done. Or type 'list' to see the available pets again."
+        user_input = gets.strip
 
-end
+        if user_input.to_i > 0
+          the_pet = @pets[user_input.to_i - 1]
+          puts "#{the_pet.name}"
+        elsif user_input == "list"
+          list_pets
+        else
+          puts "Enter 'list' or 'exit'."
+        end
+      end
+    end
+
+    def goodbye
+      "Thank you for considering one of our pets to foster!"
+    end
+
+  end
