@@ -1,4 +1,3 @@
-
   #  code CLI here
   class Foster::CLI
 
@@ -11,8 +10,9 @@
     def list_pets
       puts "These are our cats or dogs available for foster:"
       @pets = Foster::Pets.all #returns objects
-      @pets.each.with_index(1) do |pet, index|
+      @pets.map.with_index(1) do |pet, index|
         puts "#{index}. #{pet.name}"
+        # binding.pry
       end
     end
 
@@ -24,7 +24,7 @@
 
         if user_input.to_i > 0
           the_pet = @pets[user_input.to_i - 1]
-          puts "#{the_pet.name}"
+          puts "#{the_pet.url}"
         elsif user_input == "list"
           list_pets
         else
