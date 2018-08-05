@@ -4,11 +4,11 @@ class Foster::Pets
   attr_accessor :name, :url
   @@all = []
 
-  # def initialize(name, description, url)
-  #   @name = name
-  #   @url = url
-  #   @@all << self
-  # end
+  def initialize(name, url)
+    @name = name
+    @url = url
+    @@all << self
+  end
 
   def self.all
   # Foster::Scraper.new.scrape_names
@@ -21,7 +21,7 @@ class Foster::Pets
     # pet_2.url = "http://www.friends4life.org/adopt/adoptable-dogs/adoptable/2266/3504/Jane"
     #
     # [pet_1, pet_2]# @@all  #return instances of pets in array
-    @@all << self.scrape_pets
+    @@all << Foster::Scraper.scrape_pets
   end
 
 end

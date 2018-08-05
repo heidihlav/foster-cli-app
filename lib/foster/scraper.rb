@@ -2,14 +2,12 @@ class Foster::Scraper
 
   def self.scrape_pets
     doc = Nokogiri::HTML(open('http://www.friends4life.org/how-to-help/foster'))
-    a_pet = self.new
-    pets = doc.css(".callout li")
-    pets.each do |pet|
+    doc.css(".callout ul li").each do |pet|
       name = pet.children[0].children[0].text
       url = pet.children[0].attributes["href"].value
-      # => [pet_1, pet_2]
+      Foster::Pets.new(name, url)
     end
-    #pets
+    # a_pet
   end
 
 
