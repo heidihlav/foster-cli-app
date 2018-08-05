@@ -9,7 +9,10 @@ class Foster::CLI
 
   def list_pets
     puts "These are our cats or dogs available for foster:"
-    @pets = Foster::Pets.all
+    @pets = Foster::Pets.all #returns deal objects
+    @pets.each.with_index(1) do |pet, index|
+      puts "#{index}. #{pet.name}"
+    end
   end
 
   def menu
@@ -17,9 +20,11 @@ class Foster::CLI
     while user_input != "exit"
       puts "Which cat or dog would you like to know more about? Type the number next to the pet's name. Type 'exit' if you are done. Or type 'list' to see the available pets again."
       user_input = gets.strip
+
       if user_input.to_i > 0
-        puts @pets[user_input.to_i - 1]
-      elsif input == "list"
+        the_pet = @pets[user_input.to_i - 1]
+        puts "#{the_pet.name}"
+      elsif user_input == "list"
         list_pets
       else
         puts "Enter 'list' or 'exit'."

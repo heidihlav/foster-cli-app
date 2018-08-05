@@ -11,14 +11,7 @@ class Foster::Pets
   # end
 
   def self.all
-    puts ""
-    puts "Dogs"
-    puts "1. Fido"
-    puts "2. Fluffy"
-    puts "Cats"
-    puts "3. Mittens"
-    puts "4. Socks"
-    puts ""
+  #scrape ffl and return pets
     pet_1 = Foster::Pets.new
     pet_1.name = "Marfa"
     pet_1.url = "http://www.friends4life.org/adopt/adoptable-dogs/adoptable/5227/7631/Marfa"
