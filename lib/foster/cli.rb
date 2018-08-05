@@ -22,10 +22,10 @@ class Foster::CLI
       user_input = gets.strip
 
       if user_input.to_i > 0
-        the_pet = @questions[user_input.to_i - 1]
-        puts "#{the_pet.name}"
+        the_q = @questions[user_input.to_i - 1]
+        puts "#{the_q.name}"
       elsif user_input == "list"
-        list_pets
+        list_questions
       else
         puts "Enter 'list' or 'exit'."
       end

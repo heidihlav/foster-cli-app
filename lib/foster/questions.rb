@@ -1,12 +1,12 @@
 # code pets objects here - individual pets attributes
 class Foster::Questions
 
-  attr_accessor :name, :url
+  attr_accessor :heading, :paragraph
   @@all = []
 
-  def initialize(name, url)
-    @name = name
-    @url = url
+  def initialize(heading, paragraph)
+    @heading = heading
+    @paragraph = paragraph
     @@all << self
   end
 
