@@ -5,12 +5,10 @@ class Foster::Scraper
     doc.css(".callout ul li").map do |pet|
         pet_names = pet.children[0].children[0].text
         pet_urls = pet.children[0].attributes["href"].value
-        url = pet_urls[0..20]
-        name = pet_names[0..20]
+        url = pet_urls
+        name = pet_names
         Foster::Pets.new(name, url)
-        # binding.pry
     end
   end
-#pry for what was sent to @@all
 
 end

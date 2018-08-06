@@ -3,18 +3,15 @@ class Foster::Pets
 
   attr_accessor :name, :url
   @@all = []
-  # binding.pry
 
   def initialize(name, url)
     @name = name
     @url = url
     @@all << self
-    # binding.pry
   end
 
   def self.all
     Foster::Scraper.scrape_pets
-    # binding.pry
   end
 
 end

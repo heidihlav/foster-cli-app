@@ -9,8 +9,7 @@
 
     def list_pets
       puts "These are our cats or dogs available for foster:"
-      @pets = Foster::Pets.all #returns objects
-      # @pets_ary = @pets[21] index 21 returns array of all objects not inside another array
+      @pets = Foster::Pets.all
       @pets.map.with_index(1) do |pet, index|
         puts "#{index}. #{pet.name}"
       end
@@ -21,9 +20,8 @@
       while user_input != "exit"
         puts "Which cat or dog would you like to know more about? Type the number next to the pet's name. Type 'exit' if you are done. Or type 'list' to see the available pets again."
         user_input = gets.strip
-        if user_input.to_i - 1 < 23
-          # @pets_ary = @pets[21]
-          the_pet = @pets[user_input.to_i]  #@pets_ary
+        if user_input.to_i < 22
+          the_pet = @pets[user_input.to_i - 1]
           puts ""
           puts "Visit 'www.friends4life.org#{the_pet.url}' to find out more about #{the_pet.name}!"
           puts ""
