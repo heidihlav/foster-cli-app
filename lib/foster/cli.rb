@@ -10,7 +10,7 @@
     def list_pets
       puts "These are our cats or dogs available for foster:"
       @pets = Foster::Pets.all #returns objects
-      # @pets_ary = @pets[21]
+      # @pets_ary = @pets[21] index 21 returns array of all objects not inside another array
       @pets.map.with_index(1) do |pet, index|
         puts "#{index}. #{pet.name}"
       end
