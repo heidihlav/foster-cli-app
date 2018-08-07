@@ -19,20 +19,19 @@
       while user_input != "exit"
         puts "Which cat or dog would you like to know more about? Type the number next to the pet's name. Type 'exit' if you are done. Or type 'list' to see the available pets again."
         user_input = gets.strip
-
-          if user_input.to_i > 0
-            the_pet = @pets[user_input.to_i - 1]
-            puts ""
-            puts "Visit 'www.friends4life.org#{the_pet.url}' to find out more about #{the_pet.name}!"
-            puts ""
-          elsif user_input == "list"
-            list_pets
-          elsif user_input == "exit"
-            puts "Thank you for considering one of our pets to foster!"
-          else
-            puts "Enter 'list' or 'exit'. Or enter a valid number."
-          end
+        if user_input.to_i > 0               #.between?(1, 21)
+          the_pet = @pets[user_input.to_i - 1]
+          puts ""
+          puts "Visit 'www.friends4life.org#{the_pet.url}' to find out more about #{the_pet.name}!"
+          puts ""
+        elsif user_input == "list"
+          list_pets
+        elsif user_input == "exit"
+          puts "Thank you for considering one of our pets to foster!"
+        else
+          puts "Enter 'list' or 'exit'. Or enter a valid number."
         end
+      end
     end
 
 
