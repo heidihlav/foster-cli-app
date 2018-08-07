@@ -17,22 +17,22 @@
 
     def menu
       user_input = nil
-      while user_input != "exit"
+      while user_input != "exit" || "list"
         puts "Which cat or dog would you like to know more about? Type the number next to the pet's name. Type 'exit' if you are done. Or type 'list' to see the available pets again."
         user_input = gets.strip
-        if user_input.to_i < 22
-          the_pet = @pets[user_input.to_i - 1]
-          puts ""
-          puts "Visit 'www.friends4life.org#{the_pet.url}' to find out more about #{the_pet.name}!"
-          puts ""
-        elsif user_input == "list"
-          list_pets
-        elsif user_input == "exit"
-          goodbye
-        else
-          puts "Enter 'list' or 'exit'."
-        end
-      end
+
+          if user_input.to_i < 22
+            the_pet = @pets[user_input.to_i - 1]
+            puts ""
+            puts "Visit 'www.friends4life.org#{the_pet.url}' to find out more about #{the_pet.name}!"
+            puts ""
+          elsif user_input == "list"
+            list_pets
+          elsif user_input == "exit"
+            goodbye
+          else
+            puts "Enter 'list' or 'exit'."
+          end
     end
 
     def goodbye
