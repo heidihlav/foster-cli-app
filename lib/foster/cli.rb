@@ -1,7 +1,7 @@
-  #  code CLI here
   class Foster::CLI
 
     def start
+      Foster::Scraper.scrape_pets
       list_pets
       menu
     end
@@ -19,7 +19,7 @@
       while user_input != "exit"
         puts "Which cat or dog would you like to know more about? Type the number next to the pet's name. Type 'exit' if you are done. Or type 'list' to see the available pets again."
         user_input = gets.strip
-        if user_input.to_i > 0               #.between?(1, 21)
+        if user_input.to_i.between?(1, @pets.size)
           the_pet = @pets[user_input.to_i - 1]
           puts ""
           puts "Visit 'www.friends4life.org#{the_pet.url}' to find out more about #{the_pet.name}!"

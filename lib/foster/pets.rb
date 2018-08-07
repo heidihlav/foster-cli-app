@@ -1,4 +1,3 @@
-# code pets objects here - individual pets attributes
 class Foster::Pets
 
   attr_accessor :name, :url
@@ -11,7 +10,7 @@ class Foster::Pets
   end
 
   def self.all
-    Foster::Scraper.scrape_pets
+    @@all
   end
 
 end
