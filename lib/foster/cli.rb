@@ -7,6 +7,8 @@
     end
 
     def list_pets
+      puts "Welcome to FFL's foster pets app!"
+      puts ""
       puts "These are our cats or dogs available for foster:"
       @pets = Foster::Pets.all
       @pets.map.with_index(1) do |pet, index|
@@ -29,7 +31,7 @@
         elsif user_input == "exit"
           puts "Thank you for considering one of our pets to foster!"
         else
-          puts "Enter 'list' or 'exit'. Or enter a valid number."
+          puts "This is not valid option. Enter a number 1 - 21. Or enter 'list' or 'exit'."
         end
       end
     end
