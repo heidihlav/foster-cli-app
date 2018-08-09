@@ -11,7 +11,7 @@
       puts ""
       puts "These are our cats or dogs available for foster:"
       @pets = Foster::Pets.all
-      @pets.map.with_index(1) do |pet, index|
+      @pets.each.with_index(1) do |pet, index|
         puts "#{index}. #{pet.name}"
       end
     end
