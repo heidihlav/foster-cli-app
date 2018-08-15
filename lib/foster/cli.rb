@@ -34,7 +34,7 @@
             puts ""
           else
           puts "This is not valid option. Enter a number 1 - 21. Or enter 'list' or 'exit'."
-        end
+          end
         end
       end
     end
